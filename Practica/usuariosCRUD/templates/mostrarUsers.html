@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<h1>All Users</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID </th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created at </th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for user in users %}
+        <tr>
+            <td scope="row">{{user.id}}</td>
+            <td scope="row">{{user.first_name}} {{user.last_name}}</td>
+            <td scope="row">{{user.email}}</td>
+            <td scope="row"> {{user.created_at}}</td>
+            <td scope="row">
+                <div class="btn-group" role="group">
+                    <a href="/users/{{user.id}}" class="btn btn-success ms-1" type="button">Show</a>
+                    <a href="/users/{{user.id}}/edit" class="btn btn-primary ms-1" type="button">Edit</a>
+                    <a href=" /delete/{{user.id}}/destroy" class="btn btn-danger ms-1" type="button">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-primary" href="/users/new">Add a new user</a>
+{% endblock %}

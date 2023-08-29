@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<a href="/users" class="btn btn-primary mb-3 ">Home</a>
+<div class="card text-bg-info mb-3">
+    <h3 class="card-header">User ID: {{user.id}}</h3>
+    <div class="card-body">
+        <p class="card-text"><b>Full name: {{user.first_name}}  {{user.last_name}}</b></p>
+        <p class="card-text"><b>Email:  {{user.email}}</b></p>
+        <p class="card-text"><b>Created on:  {{user.created_at}} </b></p>
+        <p class="card-text"><b>Last Update:  {{user.updated_at}}</b></p>
+    </div>
+</div>
+<div class="btn-group" role="group">
+    <a href="/users/{{user.id}}/edit" class="btn btn-primary ms-1" type="button">Edit</a>
+    <a href=" /delete/{{user.id}}/destroy" class="btn btn-danger ms-1" type="button">Delete</a>
+</div>
+{% endblock %}

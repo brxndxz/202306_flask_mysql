@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% endblock %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block contenido %}
+
+<div class="row ">
+    <div class="col-6 ">
+        <h3>New Dojo</h3>
+        <form action="/crear_dojo" method="post">
+            <div class="row g-3 align-items-center">
+                <div class="col-3">
+                    <label for="name" class="col-form-label">Name</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mt-3">
+                <div class="col-3">
+                </div>
+                <div class="col-9">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <h3>All Dojos</h3>
+        <ul class="list-group list-group-item-primary text-center">
+            {% for dojo in dojos %}
+            <a href="/dojos/{{dojo.id}}" class="list-group-item list-group-item-action ">{{dojo.name}}</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="container d-flex justify-content-between mt-3">
+        <div></div>
+        <a href="/ninjas" class="btn btn-success float-right">Add Ninja</a>
+    </div>
+</div>
+
+{% endblock %}

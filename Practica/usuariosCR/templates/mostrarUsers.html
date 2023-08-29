@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<h1>All Users</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID </th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name </th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for one_user in all_users %}
+        <tr>
+            <td scope="row">{{one_user.id}}</td>
+            <td scope="row">{{one_user.first_name}}</td>
+            <td scope="row"> {{one_user.last_name}}</td>
+            <td scope="row">{{one_user.email}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-primary" href="/users/new">Add a new user</a>
+{% endblock %}

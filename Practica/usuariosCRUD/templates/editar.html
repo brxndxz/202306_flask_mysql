@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h1>Edit User ID: {{user.id}}</h1>
+<a href="/users" class="btn btn-primary">Home</a>
+<form method="post" action="/process_edit_user/{{user.id}}">
+    <div class="mb-3">
+        <label for="fname" class="form-label">First Name:</label>
+        <input type="text" class="form-control" name="fname" value="{{user.fname}}">
+    </div>
+    <div class="mb-3">
+        <label for="lname" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" name="lname" value="{{user.lname}}">
+    </div>
+    <div class="mb-3">
+        <label for="em" class="form-label">Email:</label>
+        <input type="text" class="form-control" name="em"  value="{{user.em}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/users/{{user.id}}">Show User</a>
+</form>
+{% endblock %}

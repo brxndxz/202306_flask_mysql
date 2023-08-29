@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% endblock %}
+
+{% block estilos %}
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container d-flex justify-content-between align-items-center">
+    <h3 class="mt-5">New Ninja</h3>
+    <a href="/dojos" class="btn btn-success mt-5">Home</a>
+</div>
+<hr>
+<div class="row">
+    <div class="col-6">
+        <form action="/crear_ninja" method="post">
+            
+            <div class="row g-3 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="first_name" class="col-form-label">First Name</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" id="first_name" name="first_name" class="form-control">
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="last_name" class="col-form-label">Last Name</label>
+                </div>
+                <div class="col-9">
+                    <input type="text" id="last_name" name="last_name" class="form-control">
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="age" class="col-form-label">Age</label>
+                </div>
+                <div class="col-9">
+                    <input type="number" id="age" name="age" class="form-control">
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-1">
+                <div class="col-3">
+                    <label for="dojo_id" class="col-form-label">Dojo</label>
+                </div>
+                <div class="col-9">
+                    <select name="dojo_id" class="form-select">
+                        {% for dojo in dojos %}
+                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-center mt-3">
+                <div class="col-3">
+                </div>
+                <div class="col-9">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+
+
+
